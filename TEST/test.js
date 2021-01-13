@@ -1,4 +1,5 @@
 const liveRead = require('../lib/liveRead')
+const { EOL } = require('os')
 const rt = new liveRead(`GIT > `)
 
 // Listen input key-by-key

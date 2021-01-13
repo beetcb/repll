@@ -1,5 +1,5 @@
 {
-  "name": "live-read",
+  "name": "enhanced-readline",
   "version": "1.0.0",
   "description": "interactive && lively node readline enhanced",
   "scripts": {
