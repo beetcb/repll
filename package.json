@@ -1,0 +1,15 @@
+{
+  "name": "live-read",
+  "version": "1.0.0",
+  "description": "Interactive node read alternative ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "readline",
+    "shell",
+    "nodejs"
+  ],
+  "author": "beetcb",
+  "license": "ISC"
+}
