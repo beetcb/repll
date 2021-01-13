@@ -1,7 +1,7 @@
 {
   "name": "live-read",
   "version": "1.0.0",
-  "description": "Interactive node read alternative ",
+  "description": "interactive && lively node readline enhanced",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
