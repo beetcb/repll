@@ -5,9 +5,7 @@ const rt = new liveRead(`GIT > `)
 // Listen input key-by-key
 rt.on('input', (input) => {
   if (input === 'a') {
-    rt.refresh('A')
-  } else {
-    rt.refresh(`${EOL}INPUT: ${input}${EOL}ALL: ${rt.input}${EOL}LINE: ${rt.linebreak}`)
+    rt.refresh(`${EOL}INPUT: ${input}${EOL}ALL: ${rt.input}`)
   }
 })
 
