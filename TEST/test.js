@@ -3,8 +3,8 @@ const { EOL } = require('os')
 const rt = new liveRead(`GIT > `)
 
 // Listen input key-by-key
-rt.on('key', (key, data) => {
-  rt.refreshPrompt(`${EOL}INPUT: ${key}${EOL}ALL: ${rt.input}`)
+rt.on('input', (input) => {
+  rt.refreshPrompt(`${EOL}INPUT: ${input}${EOL}ALL: ${rt.input}`)
 })
 
 // Complete action
