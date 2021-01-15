@@ -6,7 +6,7 @@ module.exports = {
     return this.instance
   },
   onInput(callback) {
-    this.instance.on('input', (input) => callback(input))
+    this.instance.on('input', input => callback(input))
   },
   onTab(callback) {
     this.instance.on('complete', () => callback())

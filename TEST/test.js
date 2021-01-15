@@ -9,9 +9,11 @@ const prompt = c`{blue › }`
 const replL = replLive(prompt, strLen(prompt))
 
 // Listen input key-by-key
-onInput((input) => {
+onInput(input => {
   refresh(
-    c`{green.bold ${EOL}INPUT}: ${input}${EOL}ALL: ${replL.input}${EOL}CURSOR: {red ${JSON.stringify(replL.cursorPos)}}`
+    c`{green.bold ${EOL}INPUT}: ${input}${EOL}ALL: ${
+      replL.input
+    }${EOL}CURSOR: {red ${JSON.stringify(replL.cursorPos)}}`
   )
 })
 
@@ -19,6 +21,6 @@ onInput((input) => {
 onTab(() => {
   const input = replL.input
   const query = ['feat: ', 'fix: ']
-  const chosen = query.filter((e) => e.startsWith(input)).join(EOL)
+  const chosen = query.filter(e => e.startsWith(input)).join(EOL)
   refresh(chosen)
 })
