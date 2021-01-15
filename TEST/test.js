@@ -3,6 +3,7 @@ const strLen = require('string-length')
 
 const liveRead = require('../lib/liveRead')
 const { EOL } = require('os')
+const { rawListeners } = require('process')
 
 // Needed pass real len when use astral symbols
 const prompt = c`{blue › }`
@@ -22,5 +23,4 @@ rt.on('complete', () => {
   const input = rt.input
   const query = ['feat: ', 'fix: ']
   const chosen = query.filter((e) => e.startsWith(input)).join(EOL)
-  rt.refresh(chosen, true)
 })
