@@ -14,7 +14,9 @@ rt.on('input', (input) => {
   if (input === 'a') {
     rt.refresh(`${EOL}A`)
   } else {
-    rt.refresh(c`{green.bold ${EOL}INPUT}: ${input}${EOL}ALL: ${rt.input}`)
+    rt.refresh(
+      c`{green.bold ${EOL}INPUT}: ${input}${EOL}ALL: ${rt.input}${EOL}CURSOR: {red ${JSON.stringify(rt.cursorPos)}}`
+    )
   }
 })
 
