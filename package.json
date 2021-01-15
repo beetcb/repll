@@ -5,17 +5,16 @@
   "repository": "beetcb/repll",
   "keywords": [
     "readline",
-    "shell",
     "nodejs",
     "input",
-    "repl"
+    "repl",
+    "cli"
   ],
   "author": {
     "name": "beetcb",
     "email": "i@beetcb.com",
     "url": "github.com/beetcb"
   },
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
