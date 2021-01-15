@@ -1,7 +1,7 @@
 const c = require('chalk')
 const strLen = require('string-length')
 
-const { replLive, onInput, onTab, refresh } = require('../lib/replLive')
+const { replLive, onInput, onTab, refresh } = require('../index')
 const { EOL } = require('os')
 
 // Needed pass real len when use astral symbols

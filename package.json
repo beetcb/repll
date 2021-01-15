@@ -1,7 +1,8 @@
 {
-  "name": "enhanced-readline",
+  "name": "repl-live",
   "version": "1.0.0",
-  "description": "interactive && lively node readline enhanced",
+  "description": "repl livly implementation with readline",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
