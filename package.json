@@ -1,17 +1,25 @@
 {
-  "name": "repl-live",
+  "name": "repll",
   "version": "1.0.0",
-  "description": "repl livly implementation with readline",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "node repl livly implementation",
+  "repository": "beetcb/repll",
   "keywords": [
     "readline",
     "shell",
-    "nodejs"
+    "nodejs",
+    "input",
+    "repl"
   ],
-  "author": "beetcb",
+  "author": {
+    "name": "beetcb",
+    "email": "i@beetcb.com",
+    "url": "github.com/beetcb"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.js",
   "license": "ISC",
   "devDependencies": {
     "chalk": "^4.1.0",
