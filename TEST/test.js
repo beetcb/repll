@@ -1,10 +1,20 @@
+const c = require('chalk')
+const strLen = require('string-length')
+
 const liveRead = require('../lib/liveRead')
 const { EOL } = require('os')
-const rt = new liveRead(`GIT > `)
+
+// Needed pass real len when use astral symbols
+const prompt = c`{blue › }`
+const rt = new liveRead(prompt, strLen(prompt))
 
 // Listen input key-by-key
 rt.on('input', (input) => {
-  rt.refresh(`${EOL}INPUT: ${input}${EOL}ALL: ${rt.input}`)
+  if (input === 'a') {
+    rt.refresh(`${EOL}A`)
+  } else {
+    rt.refresh(c`{green.bold ${EOL}INPUT}: ${input}${EOL}ALL: ${rt.input}`)
+  }
 })
 
 // Complete action

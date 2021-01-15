@@ -11,5 +11,9 @@
     "nodejs"
   ],
   "author": "beetcb",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "string-length": "^4.0.1"
+  }
 }
