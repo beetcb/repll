@@ -20,7 +20,7 @@ npm i repll
 2. usage:
 
 ```js
-const { replLive, onInput, onTab, refresh } = require('../index')
+const { replLive, onInput, onTab, refresh } = require('repll')
 const { EOL } = require('os')
 
 // Create a repll instance
