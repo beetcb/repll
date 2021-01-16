@@ -9,7 +9,13 @@ module.exports = {
     this.instance.on('input', input => callback(input))
   },
   onTab(callback) {
-    this.instance.on('complete', () => callback())
+    this.instance.on('complete', input => {
+      // See https://github.com/nodejs/node/blob/master/lib/readline.js#L508
+      // Do something using `input`
+      this.instance.rl.completer = (v, cb) => {
+        cb(null, callback(v))
+      }
+    })
   },
   onArrow(callback) {
     this.instance.on('arrow', i => callback(i))
