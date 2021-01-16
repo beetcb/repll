@@ -11,6 +11,12 @@ module.exports = {
   onTab(callback) {
     this.instance.on('complete', () => callback())
   },
+  onArrow(callback) {
+    this.instance.on('arrow', i => callback(i))
+  },
+  onAny(callback) {
+    this.instance.on('any', data => callback(data))
+  },
   refresh(string) {
     this.instance.refresh(string)
   },
