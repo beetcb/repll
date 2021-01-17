@@ -44,8 +44,19 @@ const instance = {
   onAny(callback) {
     this.instance.on('any', data => callback(data))
   },
+  onSubmit(callback) {
+    this.instance.on('submit', result => {
+      callback(result)
+    })
+  },
   refresh(string) {
     this.instance.refresh(string)
+  },
+  hesitateRefresh(time, string) {
+    clearTimeout(this.lastTimer)
+    this.lastTimer = setTimeout(() => {
+      this.instance.refresh(string)
+    }, time * 1000)
   },
 }
 
