@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/beetcb/repll">
-    <img src="http://drive.tcxz.cc/demo.svg?raw" alt="demo" width="600">
+    <img src="assets/demo.svg" alt="demo" width="600">
   </a>
   <h3 align="center">repll: customizable & livly repl</h3>
   <p align="center">
@@ -17,10 +17,10 @@
 
 We also support:
 
-- `tab completion`: not bash like, we won't endlessly prompt out the possibilities. Moreover, repll support add detailed introduction by using an completion `object`
+- `tab completion`: not bash like, we won't endlessly prompt out the possibilities. Moreover, repll support adding detailed introduction by using an completion `object`
 - `placeholder`: can be used to give user tips on what to do
 - `stop detection`: when user stops input, we will calculate the pause time, compare it with the time you provide
-- `multi-line input`: in raw mode, `enter` keypress works wried by default, repll fix that
+- `multi-line input`: in raw mode, `enter` keypress works weird by default, repll fix that
 
 ### Get started!
 
