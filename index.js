@@ -1,5 +1,9 @@
 const replLive = require('./lib/replLive')
-const { commonPrefix, completeSimulation } = require('./lib/utils')
+const {
+  commonPrefix,
+  completeSimulation,
+  praseCompletion,
+} = require('./lib/utils')
 
 const instance = {
   replLive(prompt, len) {
@@ -11,27 +15,24 @@ const instance = {
   },
   onTab(callback) {
     this.instance.on('complete', input => {
-      const [selectedList, target] = callback(input)
+      const [selectedList, optionMap] = callback(input)
       const rl = this.instance.rl
       const len = selectedList.length
-      let changedList = [selectedList, target]
+      let changedList = [selectedList, input]
 
       if (!len) {
         this.instance.refresh()
         return
       } else if (len > 1) {
         const prefix = commonPrefix(selectedList)
-        const checkPrefix = prefix && prefix.length > target.length
+        const checkPrefix = prefix && prefix.length > input.length
         // If option list has common prefix, write it
         if (checkPrefix) {
           rl.write(prefix)
         }
         changedList = [[]]
         // Construct a string for output
-        const refreshContent = selectedList.reduce(
-          (s, e) => `${s ? '' : '\n'}${s}${e}\n`,
-          ''
-        )
+        const refreshContent = praseCompletion(selectedList, optionMap)
         if (refreshContent && !checkPrefix)
           this.instance.refresh(refreshContent)
       }
