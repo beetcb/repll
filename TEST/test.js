@@ -21,10 +21,11 @@ onTab(v => {
   const selectedList = Object.keys(optionMap).filter(
     e => e.includes(v) && e.length > v.length
   )
+
   return [selectedList, optionMap]
 })
 
-// The cb func cloud be async in case you do some time-consuming task
+// The cb func cloud be async if you do some time-consuming task
 // You should exit after the process
 onSubmit(async result => {
   await new Promise(resolve =>
