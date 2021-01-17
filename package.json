@@ -24,5 +24,6 @@
     "chalk": "^4.1.0",
     "node-fetch": "^2.6.1",
     "string-length": "^4.0.1"
-  }
+  },
+  "dependencies": {}
 }
