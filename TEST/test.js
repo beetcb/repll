@@ -7,11 +7,16 @@ const {
   hesitateRefresh,
   refresh,
   onSubmit,
+  onLine,
 } = require('../index')
 
 // Needed pass real len when use astral symbols
 const prompt = c`{blue › }`
-const repll = replLive(prompt, strLen(prompt))
+const repll = replLive(prompt, strLen(prompt), `LINE: 1`)
+
+onLine(l => {
+  return `LINE: ${l}`
+})
 
 onTab(v => {
   const optionMap = {

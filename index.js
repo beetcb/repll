@@ -5,23 +5,32 @@ const {
   praseCompletion,
 } = require('./lib/utils')
 
-const instance = {
-  replLive(prompt, len) {
-    this.instance = new replLive(prompt, len)
-    return this.instance
+let repll = null
+
+const methodRegister = {
+  replLive(prompt, len, placeholder) {
+    repll = this.instance = new replLive(prompt, len)
+    repll.writePlaceholder(placeholder)
+    return repll
   },
   onInput(callback) {
-    this.instance.on('key', key => callback(key))
+    repll.on('key', key => callback(key))
+  },
+  onLine(callback) {
+    repll.on('line', l => {
+      const ph = callback(l)
+      repll.writePlaceholder(ph) 
+    })
   },
   onTab(callback) {
-    this.instance.on('complete', input => {
+    repll.on('complete', input => {
       const [selectedList, optionMap] = callback(input)
-      const rl = this.instance.rl
+      const rl = repll.rl
       const len = selectedList.length
       let changedList = [selectedList, input]
 
       if (!len) {
-        this.instance.refresh()
+        repll.refresh()
         return
       } else if (len > 1) {
         const prefix = commonPrefix(selectedList)
@@ -33,32 +42,31 @@ const instance = {
         changedList = [[]]
         // Construct a string for output
         const refreshContent = praseCompletion(selectedList, optionMap)
-        if (refreshContent && !checkPrefix)
-          this.instance.refresh(refreshContent)
+        if (refreshContent && !checkPrefix) repll.refresh(refreshContent)
       }
       completeSimulation(rl, changedList)
     })
   },
   onArrow(callback) {
-    this.instance.on('arrow', i => callback(i))
+    repll.on('arrow', i => callback(i))
   },
   onAny(callback) {
-    this.instance.on('any', data => callback(data))
+    repll.on('any', data => callback(data))
   },
   onSubmit(callback) {
-    this.instance.on('submit', result => {
+    repll.on('submit', result => {
       callback(result)
     })
   },
   refresh(string) {
-    this.instance.refresh(string)
+    repll.refresh(string)
   },
   hesitateRefresh(time, string) {
     clearTimeout(this.lastTimer)
     this.lastTimer = setTimeout(() => {
-      this.instance.refresh(string)
+      repll.refresh(string)
     }, time * 1000)
   },
 }
 
-module.exports = instance
+module.exports = methodRegister
