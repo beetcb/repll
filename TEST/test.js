@@ -8,16 +8,19 @@ const {
   refresh,
   onSubmit,
   onLine,
+  onStoped,
 } = require('../index')
 
-// Needed pass real len when use astral symbols
+// Need to pass real prompt length when use astral symbols
 const prompt = c`{blue › }`
 const repll = replLive(prompt, strLen(prompt), `LINE: 1`)
 
-onLine(l => {
-  return `LINE: ${l}`
-})
+// When user stops inputing
+onStoped(() => {
+  refresh(repll.input)
+}, 0.5)
 
+// Tab completion
 onTab(v => {
   const optionMap = {
     'feat: ': 'add a new feature',
