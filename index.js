@@ -68,12 +68,6 @@ const methodRegister = {
   refresh(string) {
     repll.refresh(string)
   },
-  hesitateRefresh(time, string) {
-    clearTimeout(this.lastTimer)
-    this.lastTimer = setTimeout(() => {
-      repll.refresh(string)
-    }, time * 1000)
-  },
 }
 
 module.exports = methodRegister

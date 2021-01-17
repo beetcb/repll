@@ -2,12 +2,9 @@ const c = require('chalk')
 const strLen = require('string-length')
 const {
   replLive,
-  onInput,
   onTab,
-  hesitateRefresh,
   refresh,
   onSubmit,
-  onLine,
   onStop,
 } = require('../index')
 
