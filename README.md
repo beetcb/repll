@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/beetcb/repll">
-    <img src="https://drive.tcxz.cc/demo.svg" alt="demo" width="600">
+    <img src="http://drive.tcxz.cc/demo.svg？raw" alt="demo" width="600">
   </a>
   <h3 align="center">repll: customizable & livly repl</h3>
   <p align="center">
