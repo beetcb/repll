@@ -19,7 +19,7 @@ const methodRegister = {
   onLine(callback) {
     repll.on('line', l => {
       const ph = callback(l)
-      repll.writePlaceholder(ph) 
+      repll.writePlaceholder(ph)
     })
   },
   onTab(callback) {
@@ -52,6 +52,13 @@ const methodRegister = {
   },
   onAny(callback) {
     repll.on('any', data => callback(data))
+  },
+  onStoped(callback, time) {
+    repll.on('key', () => {
+      clearTimeout(repll.lastTimer)
+      if (repll.input)
+        repll.lastTimer = setTimeout(() => callback(), time * 1000)
+    })
   },
   onSubmit(callback) {
     repll.on('submit', result => {
