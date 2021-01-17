@@ -53,10 +53,10 @@ const methodRegister = {
   onAny(callback) {
     repll.on('any', data => callback(data))
   },
-  onStoped(callback, time) {
-    repll.on('key', () => {
+  onStop(callback, time) {
+    repll.on('any', () => {
       clearTimeout(repll.lastTimer)
-      if (repll.input)
+      if (repll.rl.line)
         repll.lastTimer = setTimeout(() => callback(), time * 1000)
     })
   },

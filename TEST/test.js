@@ -8,7 +8,7 @@ const {
   refresh,
   onSubmit,
   onLine,
-  onStoped,
+  onStop,
 } = require('../index')
 
 // Need to pass real prompt length when use astral symbols
@@ -16,7 +16,7 @@ const prompt = c`{blue › }`
 const repll = replLive(prompt, strLen(prompt), `LINE: 1`)
 
 // When user stops inputing
-onStoped(() => {
+onStop(() => {
   refresh(repll.input)
 }, 0.5)
 
