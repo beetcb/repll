@@ -10,6 +10,8 @@ const repll = replLive(prompt, strLen(prompt))
 
 onTab(v => {
   const optionList = ['feat: ', 'fix: ']
-  const selectedList = optionList.filter(e => e.includes(v))
+  const selectedList = optionList.filter(
+    e => e.includes(v) && e.length > v.length
+  )
   return [selectedList, v]
 })
