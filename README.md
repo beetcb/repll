@@ -24,15 +24,13 @@ We also support:
 
 ### Get started!
 
-#### Prerequisites
-
-repll does not need any dependencies, nevertheless, you still need `node` and `npm` to use && install this module
-
 #### Installation
 
 ```bash
-npm i repll
+npm i repll --production
 ```
+
+Under the hood, repll does not need any dependencies, the `--production` flag is used to prevent you from installing the dependencies we use to test (like `chalk`, `node-fetch` ... )
 
 #### Usage
 
