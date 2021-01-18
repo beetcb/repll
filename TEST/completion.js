@@ -3,19 +3,11 @@ const strLen = require('string-length')
 const {
   replLive,
   onTab,
-  refresh,
-  onSubmit,
-  onStop,
 } = require('../index')
 
 // Need to pass real prompt length when use astral symbols
 const prompt = c`{blue › }`
 const repll = replLive(prompt, strLen(prompt), `LINE: 1`)
-
-// When user stops inputing
-onStop(() => {
-  refresh(repll.input)
-}, 0.5)
 
 // Tab completion
 onTab(v => {
@@ -28,16 +20,4 @@ onTab(v => {
   )
 
   return [selectedList, optionMap]
-})
-
-// The cb func cloud be async if you do some time-consuming task
-// You should exit after the process
-onSubmit(async result => {
-  await new Promise(resolve =>
-    setTimeout(() => {
-      resolve('process done!')
-    }, 1000)
-  )
-  refresh(result)
-  process.exit(0)
 })

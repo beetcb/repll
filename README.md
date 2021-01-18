@@ -35,7 +35,7 @@ Under the hood, repll does not need any dependencies, the `--production` flag is
 #### Usage
 
 ```js
-const { replLive, onInput, onTab, refresh } = require('repll')
+const { replLive, onInput, refresh } = require('repll')
 
 // Create a repll instance
 const repll = replLive(`› `)
