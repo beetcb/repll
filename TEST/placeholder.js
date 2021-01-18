@@ -9,5 +9,5 @@ onLine(line => {
 })
 
 onInput(() => {
-  refresh(`ALL: ${repll.input}`)
+  refresh(`\nALL: ${repll.input}`)
 })
