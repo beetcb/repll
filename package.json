@@ -1,8 +1,12 @@
 {
   "name": "repll",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "node repl livly implementation",
   "repository": "beetcb/repll",
+  "main": "index.js",
+  "files": [
+    "lib/"
+  ],
   "keywords": [
     "readline",
     "nodejs",
@@ -18,7 +22,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "index.js",
   "license": "ISC",
   "devDependencies": {
     "chalk": "^4.1.0",
