@@ -27,10 +27,10 @@ We also support:
 #### Installation
 
 ```bash
-npm i repll --production
+npm i repll
 ```
 
-Under the hood, repll does not need any dependencies, the `--production` flag is used to prevent you from installing the dependencies we use to test (like `chalk`, `node-fetch` ... )
+The installation process will be super fast because repll does not need any dependencies
 
 #### Usage
 
@@ -50,45 +50,53 @@ onInput(input => {
 
 the arrow function passed to `onInput` acts as an `evaluate` function in repl, in this case, it will output what user inputs
 
-### Methods && Properties explained
+### Methods explained
 
-#### Methods
-
-- replLive(prompt, len, placeholder)
+- **replLive**(prompt, len, placeholder)
 
   - prompt `string`: set input prompt
-  - len `length`: the length of the prompt
   - placeholder `string`: set input placeholder
   - _Return_: a `replLive` class's instance
 
-  You must call this function first to init and generate a `repll` entity
+  You must call this function first to init and generate a `repll` entity, which keeps tracking users with `repll.input`
 
-- onInput(callback(key))
+  example:
 
-  - callback `Function`: take in user input key, evaluate it as you wish, repll with excute it for you
+  ```js
+  const { replLive, onInput, refresh } = require('repll')
 
-  This callback gets called each time user inputs a key
+  // Create a repll instance
+  const repll = replLive(`› `)
 
-- onAny(callback(data))
+  // Listen input key-by-key
+  onInput(key => {
+    // Output in real-time
+    refresh(`KEY: ${key}\nALLINPUT: ${repll.input}`)
+  })
+  ```
 
-  - callback `Function`: take in user input key's data object, it can extend `onInput` because some modifier key can't fire `onInput`
+- **refresh**(string)
 
-  This callback gets called each time user inputs a any key
+  - string `string`: info to output to stdout
 
-- onArrow(callback(arrowKey))
+  Please note, the global console module's method (like `console.log`) maybe not be the results you were hoping for, you'll need `refresh` to make up for it (Or just using refresh instead)
 
-  - callback `Function`: take in array key type (up|down|left|right)
+  ```js
+  onInput(input => {
+    // Using refresh to fix console.table output
+    refresh()
+    console.table([
+      { a: 1, b: 'Y' },
+      { a: 'Z', b: 2 },
+    ])
+  })
+  ```
 
-  This callback gets called each time user press a arrow key
+  Some of the `console.xxx` methods formats output pretty good, it can be very useful!
+  Also, they supports <span style="color: green">color</span> ! (or colorize the output easily using [`chauk`](https://github.com/chalk/chalk)
+  )
 
-- onStop(callback(data), time)
-
-  - callback `Function`: will be called when the user pause for a period of time
-  - time `number`: if `time period of pausing input` seconds > `time` seconds, the callback function is executed
-
-  You'd better use this function instead of `onInput` when you make a network request
-
-- onTab(callback(input))
+- **onTab**(callback(input))
 
   - callback `Function`: take in user accumulated input, generate a sequence for completing
 
@@ -107,19 +115,54 @@ the arrow function passed to `onInput` acts as an `evaluate` function in repl, i
   })
   ```
 
-  This callback gets called each time user press the `tab`
+  This callback gets called each time user press the `tab`, view full example at here: [./TEST/completion.js](./TEST/completion.js)
 
-- onSubmit(callback(result))
+- **onLine**(callback(key))
+
+  - callback `Function`: take in line number, if callback returns a `string`, it will be used as the new line's placeholder
+
+  This function makes palceholder modifiable when user starts a new line.
+  exameple:
+
+  ```js
+  onLine(line => {
+    return `LINE: ${line}`
+  })
+  ```
+
+  View full example at here: [./TEST/placeholder.js](./TEST/placeholder.js)
+
+- **onInput**(callback(key))
+
+  - callback `Function`: take in user input key, evaluate it as you wish, repll with excute it for you
+
+  This callback gets called each time user inputs a key
+
+- **onAny**(callback(data))
+
+  - callback `Function`: take in user input key's data object, it can extend `onInput` because some modifier key can't fire `onInput`
+
+  This callback gets called each time user inputs a any key
+
+- **onArrow**(callback(arrowKey))
+
+  - callback `Function`: take in array key type (up|down|left|right)
+
+  This callback gets called each time user press a arrow key
+
+- **onStop**(callback(data), time)
+
+  - callback `Function`: will be called when the user pause for a period of time
+  - time `number`: if `time period of pausing input` seconds > `time` seconds, the callback function is executed
+
+  You'd better use this function instead of `onInput` when you make a network request.
+  The tldr demo uses this method, it's powerful!
+
+- **onSubmit**(callback(result))
 
   - callback `Function`: take in all of the user input
 
   This callback gets called when user press <ctrl-s>, this is where the program should end
-
-- refresh(string)
-
-  - string `string`: info to output to stdout
-
-  This is where you can interact with user, you can style the output easily using [`chauk`](https://github.com/chalk/chalk) or handle it all by yourself
 
 ### Related projects
 

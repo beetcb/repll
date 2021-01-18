@@ -4,8 +4,7 @@ const { replLive, onInput, refresh } = require('../index')
 const repll = replLive(`› `)
 
 // Listen input key-by-key
-onInput(input => {
+onInput(key => {
   // Output in real-time
-  refresh(`\nINPUT: ${input}
-  \nALLINPUT: ${repll.input}`)
+  refresh(`KEY: ${key}\nALLINPUT: ${repll.input}`)
 })

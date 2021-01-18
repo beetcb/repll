@@ -19,7 +19,7 @@ const methodRegister = {
   onLine(callback) {
     repll.on('line', l => {
       const ph = callback(l)
-      repll.writePlaceholder(ph)
+      if (typeof ph === 'string') repll.writePlaceholder(ph)
     })
   },
   onTab(callback) {
