@@ -1,13 +1,9 @@
 const c = require('chalk')
-const strLen = require('string-length')
-const {
-  replLive,
-  onTab,
-} = require('../index')
+const { replLive, onTab } = require('../index')
 
 // Need to pass real prompt length when use astral symbols
 const prompt = c`{blue › }`
-const repll = replLive(prompt, strLen(prompt), `LINE: 1`)
+const repll = replLive(prompt, `LINE: 1`)
 
 // Tab completion
 onTab(v => {
