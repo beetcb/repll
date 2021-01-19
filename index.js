@@ -8,8 +8,8 @@ const {
 let repll = null
 
 const methodRegister = {
-  replLive(prompt, len, placeholder) {
-    repll = this.instance = new replLive(prompt, len)
+  replLive(prompt, placeholder) {
+    repll = this.instance = new replLive(prompt)
     repll.writePlaceholder(placeholder)
     return repll
   },

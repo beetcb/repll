@@ -37,7 +37,7 @@ The installation process will be super fast because repll does not need any depe
 const { replLive, onInput, refresh } = require('repll')
 
 // Create a repll instance
-const repll = replLive(`› `)
+const repll = replLive([`› `])
 
 // Listen input key-by-key
 onInput(input => {
