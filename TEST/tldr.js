@@ -1,12 +1,10 @@
 const { replLive, onStop, refresh } = require('../index')
 const fetch = require('node-fetch')
-const strLen = require('string-length')
 const c = require('chalk')
 
 const prompt = c`{blue › }`
 const repll = replLive(
   prompt,
-  strLen(prompt),
   `Type a command you wanna search on tldr`
 )
 

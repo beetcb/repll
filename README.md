@@ -12,8 +12,8 @@
 
 - `r`: **read** input key-by-key ( when you paste something, don't worry, we will handle it )
 - `e`: **evaluate** input ( we do not evaluate javascript, that's boring, the `eval` function is provided **by you** )
-- `p`: **print** whatever you wanna output
-- `ll`: we doing `r e p` **looply** and **livly**, so it can interact with user in real-time
+- `p`: **print** whatever you wanna output ( without even press `Enter` )
+- `ll`: we doing `r e p` **looply** and **livly**, so you can interact with user in real-time
 
 We also support:
 
@@ -52,7 +52,7 @@ the arrow function passed to `onInput` acts as an `evaluate` function in repl, i
 
 ### Methods explained
 
-- **replLive**(prompt, len, placeholder)
+- **replLive**(prompt, placeholder)
 
   - prompt `string`: set input prompt
   - placeholder `string`: set input placeholder
