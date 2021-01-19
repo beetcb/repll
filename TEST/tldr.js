@@ -3,10 +3,7 @@ const fetch = require('node-fetch')
 const c = require('chalk')
 
 const prompt = c`{blue › }`
-const repll = replLive(
-  prompt,
-  `Type a command you wanna search on tldr`
-)
+const repll = replLive([prompt], `Type a command you wanna search on tldr`)
 
 onStop(async () => {
   refresh(await tldr(repll.input))

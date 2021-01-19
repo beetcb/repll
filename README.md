@@ -10,7 +10,7 @@
 
 ### Features
 
-- `r`: **read** input key-by-key ( when you paste something, don't worry, we will handle it )
+- `r`: **read** input key-by-key ( when you paste something, don't worry, we will handle it as a longer `key` )
 - `e`: **evaluate** input ( we do not evaluate javascript, that's boring, the `eval` function is provided **by you** )
 - `p`: **print** whatever you wanna output ( without even press `Enter` )
 - `ll`: we doing `r e p` **looply** and **livly**, so you can interact with user in real-time
@@ -20,7 +20,6 @@ We also support:
 - `tab completion`: not bash like, we won't endlessly prompt out the possibilities. Moreover, repll support adding detailed introduction by using an completion `object`
 - `placeholder`: can be used to give user tips on what to do
 - `stop detection`: when user stops input, we will calculate the pause time, compare it with the time you provide
-- `multi-line input`: in raw mode, `enter` keypress works weird by default, repll fix that
 
 ### Get started!
 
@@ -48,38 +47,23 @@ onInput(input => {
 })
 ```
 
-the arrow function passed to `onInput` acts as an `evaluate` function in repl, in this case, it will output what user inputs
+The arrow function passed to `onInput` acts as an `evaluate` function in repl, in this case, it will output what user inputs
 
 ### Methods explained
 
 - **replLive**(prompt, placeholder)
 
-  - prompt `string`: set input prompt
+  - prompt `array`: set input prompt sequence, the first line's prompt will be `prompt[0]`, second's `prompt[1]` ...
   - placeholder `string`: set input placeholder
   - _Return_: a `replLive` class's instance
 
-  You must call this function first to init and generate a `repll` entity, which keeps tracking users with `repll.input`
-
-  example:
-
-  ```js
-  const { replLive, onInput, refresh } = require('repll')
-
-  // Create a repll instance
-  const repll = replLive(`› `)
-
-  // Listen input key-by-key
-  onInput(key => {
-    // Output in real-time
-    refresh(`KEY: ${key}\nALLINPUT: ${repll.input}`)
-  })
-  ```
+  You must call this function first to init and generate a `repll` entity, which keeps tracking user's ccumulated input with `repll.input`
 
 - **refresh**(string)
 
   - string `string`: info to output to stdout
 
-  Please note, the global console module's method (like `console.log`) maybe not be the results you were hoping for, you'll need `refresh` to make up for it (Or just using refresh instead)
+  Please note, the global console module's method (like `console.log`) may not be the results you were hoping for, you'll need `refresh` to make up for it (pr just using refresh instead)
 
   ```js
   onInput(input => {
@@ -93,7 +77,7 @@ the arrow function passed to `onInput` acts as an `evaluate` function in repl, i
   ```
 
   Some of the `console.xxx` methods formats output pretty good, it can be very useful!
-  Also, they supports <span style="color: green">color</span> ! (or colorize the output easily using [`chauk`](https://github.com/chalk/chalk)
+  Also, they supports <span style="color: green">color</span> ! (tips: you can colorize the output easily using [`chauk`](https://github.com/chalk/chalk)
   )
 
 - **onTab**(callback(input))
@@ -162,7 +146,7 @@ the arrow function passed to `onInput` acts as an `evaluate` function in repl, i
 
   - callback `Function`: take in all of the user input
 
-  This callback gets called when user press <ctrl-s>, this is where the program should end
+  This callback gets called when user press <ctrl-d>, this is where the program should end
 
 ### Related projects
 
