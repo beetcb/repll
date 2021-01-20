@@ -29,12 +29,12 @@ We also support:
 npm i repll
 ```
 
-The installation process will be super fast because repll does not need any dependencies
+The installation process is super fast because repll does not need any dependencies
 
 #### Usage
 
 ```js
-const { replLive, onInput, refresh } = require('repll')
+const { replLive, onInput } = require('repll')
 
 // Create a repll instance
 const repll = replLive([`› `])
@@ -42,14 +42,21 @@ const repll = replLive([`› `])
 // Listen input key-by-key
 onInput(input => {
   // Output in real-time
-  refresh(`\nINPUT: ${input}
+  repll.refresh(`\nINPUT: ${input}
   \nALLINPUT: ${repll.input}`)
 })
 ```
 
 The arrow function passed to `onInput` acts as an `evaluate` function in repl, in this case, it will output what user inputs
 
-### Methods explained
+### Global methods explained
+
+> Note: Those methods can be directly required from `repll` module:
+
+```js
+// Require global methods
+const { replLive, onTab } = require('repll')
+```
 
 - **replLive**(prompt, placeholder)
 
@@ -57,28 +64,11 @@ The arrow function passed to `onInput` acts as an `evaluate` function in repl, i
   - placeholder `string`: set input placeholder
   - _Return_: a `replLive` class's instance
 
-  You must call this function first to init and generate a `repll` entity, which keeps tracking user's ccumulated input with `repll.input`
+  You must call this function first to init and generate a `repll` entity, which contains some very useful properties and methods:
 
-- **refresh**(string)
-
-  - string `string`: info to output to stdout
-
-  Please note, the global console module's method (like `console.log`) may not be the results you were hoping for, you'll need `refresh` to make up for it (pr just using refresh instead)
-
-  ```js
-  onInput(input => {
-    // Using refresh to fix console.table output
-    refresh()
-    console.table([
-      { a: 1, b: 'Y' },
-      { a: 'Z', b: 2 },
-    ])
-  })
-  ```
-
-  Some of the `console.xxx` methods formats output pretty good, it can be very useful!
-  Also, they supports <span style="color: green">color</span> ! (tips: you can colorize the output easily using [`chauk`](https://github.com/chalk/chalk)
-  )
+  - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
+  - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user
+  - `repll.history` an `array`, when you have multiple lines of input, it records each line for user
 
 - **onTab**(callback(input))
 
@@ -115,6 +105,13 @@ The arrow function passed to `onInput` acts as an `evaluate` function in repl, i
   ```
 
   View full example at here: [./TEST/placeholder.js](./TEST/placeholder.js)
+
+- **onFakeLine**
+
+  - callback `Function`: take in this line's input
+
+  By default, when you press enter, readline creates a new line for you.
+  repll listens to the `shfit + enter` keypress to trigger the `onFakeLine` event, which allows you to simulate a (fake new)line feed on the current line
 
 - **onInput**(callback(key))
 

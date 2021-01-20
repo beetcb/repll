@@ -1,4 +1,4 @@
-const { replLive, onLine, onInput, refresh } = require('../index')
+const { replLive, onLine, onInput } = require('../index')
 
 // Create a repll instance
 const prompt = '› '
@@ -9,5 +9,5 @@ onLine(line => {
 })
 
 onInput(() => {
-  refresh(`\nALL: ${repll.input}`)
+  repll.refresh(`\nALL: ${repll.input}`)
 })

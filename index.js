@@ -22,6 +22,11 @@ const methodRegister = {
       if (typeof ph === 'string') repll.writePlaceholder(ph)
     })
   },
+  onFakeLine(callback) {
+    repll.on('shiftEnter', fixedLine => {
+      callback(fixedLine)
+    })
+  },
   onTab(callback) {
     repll.on('complete', input => {
       const [selectedList, optionMap] = callback(input)
@@ -64,9 +69,6 @@ const methodRegister = {
     repll.on('submit', result => {
       callback(result)
     })
-  },
-  refresh(string) {
-    repll.refresh(string)
   },
 }
 
