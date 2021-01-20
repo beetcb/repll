@@ -13,7 +13,7 @@
 - `r`: **read** input key-by-key ( when you paste something, don't worry, we will handle it as a longer `key` )
 - `e`: **evaluate** input ( we do not evaluate javascript, that's boring, the `eval` function is provided **by you** )
 - `p`: **print** whatever you wanna output ( without even press `Enter` )
-- `ll`: we doing `r e p` **looply** and **livly**, so you can interact with user in real-time
+- `ll`: we keep doing `r e p` **looply** and **livly**, so you can interact with user in real-time
 
 We also support:
 
