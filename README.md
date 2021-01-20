@@ -17,9 +17,11 @@
 
 We also support:
 
-- `tab completion`: not bash like, we won't endlessly prompt out the possibilities. Moreover, repll support adding detailed introduction by using an completion `object`
-- `placeholder`: can be used to give user tips on what to do
+- `tab completion`: not bash like, we won't endlessly prompt out the possibilities. Moreover, repll support adding detailed introduction by using a `completion object`
 - `stop detection`: when user stops input, we will calculate the pause time, compare it with the time you provide
+- `fake line`: sometimes, you want to process input just in one line(by hitting enter, you don't wanna create a new prompt). But readline won't let you do that line feed, repll implement that by using `onFakeLine`, press `<shift-enter>` to try it!
+- `livly prompt`: by passing a prompt string sequence to repll, every time you press enter, a brand new prompt prompts up!
+- `livly placeholder`: can be used to give user tips on what to do, it has `livly` feature too!
 
 ### Get started!
 
@@ -60,7 +62,7 @@ const { replLive, onTab } = require('repll')
 
 - **replLive**(prompt, placeholder)
 
-  - prompt `array`: set input prompt sequence, the first line's prompt will be `prompt[0]`, second's `prompt[1]` ...
+  - prompt `array`: set input prompt sequence, the first line's prompt will be `prompt[0]`, second's `prompt[1]` ... You are even able to hide the cursor by passing a `string` ends with `<hide>`
   - placeholder `string`: set input placeholder
   - _Return_: a `replLive` class's instance
 
