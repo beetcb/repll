@@ -110,7 +110,7 @@ const { replLive, onTab } = require('repll')
 
 - **onFakeLine**
 
-  - callback `Function`: take in this line's input
+  - callback `Function`
 
   By default, when you press enter, readline creates a new line for you.
   repll listens to the `shfit + enter` keypress to trigger the `onFakeLine` event, which allows you to simulate a (fake new)line feed on the current line
