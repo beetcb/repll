@@ -6,5 +6,5 @@ const repll = replLive(['write › ', 'write more › '])
 // Listen input key-by-key
 onInput(key => {
   // Output in real-time
-  repll.refresh(`KEY: ${key}\nALLINPUT: ${repll.history[0]}`)
+  repll.refresh(`KEY: ${key}\nLINE: ${repll.input}`)
 })
