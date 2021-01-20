@@ -32,7 +32,7 @@ const methodRegister = {
       const [selectedList, optionMap] = callback(input)
       const rl = repll.rl
       const len = selectedList.length
-      let changedList = [selectedList, input]
+      let output = selectedList[0]
 
       if (!len) {
         repll.refresh()
@@ -44,12 +44,12 @@ const methodRegister = {
         if (checkPrefix) {
           rl.write(prefix)
         }
-        changedList = [[]]
+        output = null
         // Construct a string for output
         const refreshContent = praseCompletion(selectedList, optionMap)
         if (refreshContent && !checkPrefix) repll.refresh(refreshContent)
       }
-      completeSimulation(rl, changedList)
+      if (output) repll.write(output.slice(repll.input.length))
     })
   },
   onArrow(callback) {
