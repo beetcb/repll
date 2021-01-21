@@ -1,7 +1,6 @@
 const replLive = require('./lib/replLive')
 const {
   commonPrefix,
-  completeSimulation,
   praseCompletion,
 } = require('./lib/utils')
 
@@ -32,6 +31,7 @@ const methodRegister = {
       const [selectedList, optionMap] = callback(input)
       const rl = repll.rl
       const len = selectedList.length
+      const inputLen = repll.input.length
       let output = selectedList[0]
 
       if (!len) {
@@ -42,14 +42,14 @@ const methodRegister = {
         const checkPrefix = prefix && prefix.length > input.length
         // If option list has common prefix, write it
         if (checkPrefix) {
-          rl.write(prefix)
+          rl.write(prefix.slice(inputLen))
         }
         output = null
         // Construct a string for output
         const refreshContent = praseCompletion(selectedList, optionMap)
         if (refreshContent && !checkPrefix) repll.refresh(refreshContent)
       }
-      if (output) repll.write(output.slice(repll.input.length))
+      if (output) repll.write(output.slice(inputLen))
     })
   },
   onArrow(callback) {
