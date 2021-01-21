@@ -45,7 +45,7 @@ const repll = replLive([`› `])
 onInput(input => {
   // Output in real-time
   repll.refresh(`\nINPUT: ${input}
-  \nALLINPUT: ${repll.input}`)
+  \nLINE: ${repll.input}`)
 })
 ```
 
