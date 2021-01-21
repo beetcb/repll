@@ -133,7 +133,7 @@ const { replLive, onTab } = require('repll')
 
   This callback gets called each time user press a arrow key
 
-- **onStop**(callback(data), time)
+- **onStop**(callback(), time)
 
   - callback `Function`: will be called when the user pause for a period of time
   - time `number`: if `time period of pausing input` seconds > `time` seconds, the callback function is executed
@@ -141,11 +141,11 @@ const { replLive, onTab } = require('repll')
   You'd better use this function instead of `onInput` when you make a network request.
   The tldr demo uses this method, it's powerful!
 
-- **onSubmit**(callback(result))
+- **onSubmit**(callback())
 
-  - callback `Function`: take in all of the user input
+  - callback `Function`
 
-  This callback gets called when user press <ctrl-d>, this is where the program should end
+  This callback gets called when user press <ctrl-s>, this is where the program should end
 
 ### Related projects
 
