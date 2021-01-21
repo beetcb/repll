@@ -71,6 +71,7 @@ const { replLive, onTab } = require('repll')
   - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
   - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user
   - `repll.history` an `array`, when you have multiple lines of input, it records each line for user
+  - `repll.inpuLine`: a `string`, it indicates which row user is currently on
 
 - **onTab**(callback(input))
 
