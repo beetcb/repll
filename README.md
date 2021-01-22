@@ -69,7 +69,7 @@ const { replLive, onTab } = require('repll')
   You must call this function first to init and generate a `repll` entity, which contains some very useful properties and methods:
 
   - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
-  - `repll.clear()`: a `Function`, it clears user's input on current line
+  - `repll.clear(len)`: a `Function`, it clears user's input on current line, counting from current cursor to the left `len`. If `len` is undefined, this will clear the entire input
   - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user, it enables the ability to do fancy things like heightlighting their input:
 
   ```js
@@ -82,26 +82,26 @@ const { replLive, onTab } = require('repll')
   ```
 
   - `repll.history` an `array`, when you have multiple lines of input, it records each line for user
-  - `repll.inpuLine`: a `string`, it indicates which row user is currently on
+  - `repll.inpuLine`: a `string`, it indicates which line user is currently on
 
 - **onTab**(callback(input))
 
-- callback `Function`: take in user accumulated input, generate a sequence for completing
+  - callback `Function`: take in user accumulated input, generate a sequence for completing
 
-example:
+  example:
 
-```js
-onTab(v => {
-  const optionMap = {
-    'feat: ': 'add a new feature',
-    'fix: ': 'patch a bug',
-  }
-  const selectedList = Object.keys(optionMap).filter(
-    e => e.includes(v) && e.length > v.length
-  )
-  return [selectedList, optionMap]
-})
-```
+  ```js
+  onTab(v => {
+    const optionMap = {
+      'feat: ': 'add a new feature',
+      'fix: ': 'patch a bug',
+    }
+    const selectedList = Object.keys(optionMap).filter(
+      e => e.includes(v) && e.length > v.length
+    )
+    return [selectedList, optionMap]
+  })
+  ```
 
 This callback gets called each time user press the `tab`, view full example at here: [./TEST/completion.js](./TEST/completion.js)
 
