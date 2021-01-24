@@ -17,6 +17,7 @@
 
 We also support:
 
+- `input heilghting`: heightlight user's input at ease, this is what a repl should feels like
 - `tab completion`: not bash like, we won't endlessly prompt out the possibilities. Moreover, repll support adding detailed introduction by using a `completion object`
 - `stop detection`: when user stops input, we will calculate the pause time, compare it with the time you provide
 - `fake line`: sometimes, you want to process input just in one line(by hitting enter, you don't wanna create a new prompt). But readline won't let you do that line feed, repll implement that by using `onFakeLine`, press `<shift-enter>` to try it!
@@ -69,7 +70,7 @@ const { replLive, onTab } = require('repll')
   You must call this function first to init and generate a `repll` entity, which contains some very useful properties and methods:
 
   - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
-  - `repll.clear(len)`: a `Function`, it clears user's input on current line, counting from current cursor to the left `len`. If `len` is undefined, this will clear the entire input
+  - `repll.hl(len, string)`: a `Function`, it moves the cursor to the `len` left, cover user's input with a colorized string, it can be used to heightlighting user's input(NOTE: it won't change user's input, it covers a layer of colorized text)
   - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user, it enables the ability to do fancy things like heightlighting their input:
 
   ```js

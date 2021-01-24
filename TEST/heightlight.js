@@ -1,7 +1,10 @@
 const { replLive, onInput } = require('../index')
 const c = require('chalk')
 
-const repll = replLive(['repll› ', '...'], 'Type const or number to get the heightlight')
+const repll = replLive(
+  ['repll› ', '...'],
+  'Type const or number to get the heightlight'
+)
 
 onInput(() => {
   const input = repll.input
@@ -16,7 +19,5 @@ onInput(() => {
 })
 
 function heightlight(string, color) {
-  const { write, clear, refresh } = repll
-  clear(string.length)
-  write(c`{${color} ${string}}`)
+  repll.hl(string.length, c`{${color} ${string}}`)
 }
