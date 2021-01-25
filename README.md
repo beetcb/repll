@@ -71,16 +71,7 @@ const { replLive, onTab } = require('repll')
 
   - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
   - `repll.hl(len, string)`: a `Function`, it moves the cursor to the `len` left, cover user's input with a colorized string, it can be used to heightlighting user's input(NOTE: it won't change user's input, it covers a layer of colorized text)
-  - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user, it enables the ability to do fancy things like heightlighting their input:
-
-  ```js
-  onInput(() => {
-  const { write, clear, refresh } = repll
-  if (repll.input.match(/^define$/)) {
-    clear()
-    write(c`{cyan define}`)
-  }
-  ```
+  - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user. You can use it as an auto-completion
 
   - `repll.history` an `array`, when you have multiple lines of input, it records each line for user
   - `repll.inpuLine`: a `string`, it indicates which line user is currently on
