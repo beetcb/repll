@@ -70,7 +70,7 @@ const { replLive, onTab } = require('repll')
   You must call this function first to init and generate a `repll` entity, which contains some very useful properties and methods:
 
   - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
-  - `repll.hl(len, string)`: a `Function`, it moves the cursor to the `len` left, cover user's input with a colorized string, it can be used to heightlighting user's input(NOTE: it won't change user's input, it covers a layer of colorized text)
+  - `repll.hl(len, string)`: a `Function`, it moves the cursor to the `len` left, cover user's input with a colorized `string`, it can be used to heightlighting user's input(NOTE: it won't change user's input, it covers a layer of colorized `string` **provided by you**)
   - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user. You can use it as an auto-completion
 
   - `repll.history` an `array`, when you have multiple lines of input, it records each line for user
