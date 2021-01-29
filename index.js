@@ -22,7 +22,7 @@ const methodRegister = {
     })
   },
   onFakeLine(callback) {
-    repll.on('shiftEnter', fixedLine => {
+    repll.on('fakeLine', fixedLine => {
       callback(fixedLine)
     })
   },

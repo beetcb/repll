@@ -20,7 +20,7 @@ We also support:
 - `input heilghting`: heightlight user's input at ease, this is what a repl should feels like
 - `tab completion`: not bash like, we won't endlessly prompt out the possibilities. Moreover, repll support adding detailed introduction by using a `completion object`
 - `stop detection`: when user stops input, we will calculate the pause time, compare it with the time you provide
-- `fake line`: sometimes, you want to process input just in one line(by hitting enter, you don't wanna create a new prompt). But readline won't let you do that line feed, repll implement that by using `onFakeLine`, press `<shift-enter>` to try it!
+- `fake line`: sometimes, you want to process input just in one line(by hitting enter, you don't wanna create a new prompt). But readline won't let you do that line feed, repll implement that by using `onFakeLine`, press `<shift-DownArrow>` to try it!
 - `livly prompt`: by passing a prompt string sequence to repll, every time you press enter, a brand new prompt prompts up!
 - `livly placeholder`: can be used to give user tips on what to do, it has `livly` feature too!
 
@@ -117,7 +117,7 @@ This callback gets called each time user press the `tab`, view full example at h
   - callback `Function`
 
   By default, when you press enter, readline creates a new line for you.
-  repll listens to the `shfit + enter` keypress to trigger the `onFakeLine` event, which allows you to simulate a (fake new)line feed on the current line
+  repll listens to the `shfit + DownArrow` keypress to trigger the `onFakeLine` event, which allows you to simulate a (fake new) line feed on the current line
 
 - **onInput**(callback(key))
 
