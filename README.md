@@ -1,10 +1,11 @@
 <p align="center">
   <a href="https://github.com/beetcb/repll">
-    <img src="assets/demo.svg" alt="demo" width="600">
+    <img src="assets/demo-commitlive.svg" alt="demo" width="600">
   </a>
   <h3 align="center">repll: customizable & livly repl</h3>
   <p align="center">
-    <a href="https://github.com/beetcb/repll/blob/master/TEST/tldr.js">View Demo Source Code</a>
+  The above is a tool called
+  <a href="https://github.com/beetcb/commitlive">commitlive</a>, created using <code>repll</code>
   </p>
 </p>
 

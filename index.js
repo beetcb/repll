@@ -1,11 +1,7 @@
 const replLive = require('./lib/replLive')
-const {
-  commonPrefix,
-  praseCompletion,
-} = require('./lib/utils')
+const { commonPrefix, praseCompletion } = require('./lib/utils')
 
 let repll = null
-
 const methodRegister = {
   replLive(prompt, placeholder) {
     repll = this.instance = new replLive(prompt)
