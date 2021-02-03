@@ -1,6 +1,6 @@
 {
   "name": "repll",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "node repl livly implementation",
   "repository": "beetcb/repll",
   "main": "index.js",
