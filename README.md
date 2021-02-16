@@ -64,15 +64,15 @@ const { replLive, onTab } = require('repll')
 
 - **replLive**(map)
 
-  - `map`: a object which contains `prompt-placeholder` key-value pairs
+  - `map`: a `Object` which contains `prompt-placeholder` key-value pairs, repll will close it's instance when all prompts are consumed, **Make sure to pass all the prompts you need, and try to use `repll.waitClosing()` to keep the closing flow in control**
   - _Return_: a `replLive` class's instance
 
   You must call this function first to init and generate a `repll` entity, which contains some very useful properties and methods:
 
-  - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
+  - `repll.input`: a `string`, which keeps tracking of user's accumulated input in current line
   - `repll.hl(len, string)`: a `Function`, it moves the cursor to the `len` left, cover user's input with a colorized `string`, it can be used to heightlighting user's input(NOTE: it won't change user's input, it covers a layer of colorized `string` **provided by you**)
   - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user. You can use it as an auto-completion
-  - `repll.waitClosing()`: a `Function` which returns a `Promise`(will be resolved when prompt is running out), we can use it to [create a new repll instance](https://github.com/beetcb/repll/blob/master/TEST/multiRepl.js) or [close repll for good UX](https://github.com/beetcb/repll/blob/master/TEST/close.js)
+  - `repll.waitClosing()`: a `Function` which returns a `Promise`(will be resolved when prompt is running out), we can use it to [create a new repll instance](https://github.com/beetcb/repll/blob/master/TEST/multiRepl.js) or [write some sync code for good UX](https://github.com/beetcb/repll/blob/master/TEST/sync.js). **After it resolves, a repll's history array will return, you can catch it and do something like [inquirer](https://github.com/SBoudrias/Inquirer.js) does**
   - `repll.history` an `array`, when you have multiple lines of input, it records each line for user
   - `repll.inpuLine`: a `string`, it indicates which line user is currently on
 
@@ -156,3 +156,5 @@ This callback gets called each time user press the `tab`, view full example at h
 - [`repl`](https://nodejs.org/dist/latest-v15.x/docs/api/repl.html): nodejs built-in module, seems to be livly, but things start to get static when you pass `completer` into it
 
 - [`ink`](https://github.com/vadimdemedes/ink): awesome project, requires a dependency on [react](https://github.com/facebook/react), also supports read user input livly
+
+- [inquirer](https://github.com/SBoudrias/Inquirer.js): super powerful interactive command line user interfacess collection

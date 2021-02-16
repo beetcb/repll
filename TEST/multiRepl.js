@@ -8,14 +8,11 @@ let repll = replLive({
 
 ;(async () => {
   await repll.waitClosing()
-  replLive({
-    'write › ': 'haha',
-    'write more › ': '',
-  })
-
-  await repll.waitClosing()
+  console.log('noHello')
   replLive({
     'write › ': 'hahaha',
     'write more › ': '',
   })
+  await repll.waitClosing()
+  console.log('noHello')
 })()

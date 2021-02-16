@@ -9,5 +9,5 @@ let repll = replLive({
 ;(async () => {
   // Exit when the propmt becomes empty
   await repll.waitClosing()
-  process.exit()
+  console.log('Now repll closes(under control 🎉)')
 })()
