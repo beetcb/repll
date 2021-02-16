@@ -1,10 +1,9 @@
 const { replLive, onInput } = require('../index')
 const c = require('chalk')
 
-const repll = replLive(
-  ['repll› ', '...'],
-  'Type const or number to get the heightlight'
-)
+const repll = replLive({
+  'repll› ': 'Type const or number to get the heightlight',
+})
 
 onInput(() => {
   const input = repll.input

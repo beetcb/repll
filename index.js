@@ -3,19 +3,15 @@ const { commonPrefix, praseCompletion } = require('./lib/utils')
 
 let repll = null
 const methodRegister = {
-  replLive(prompt, placeholder) {
-    repll = this.instance = new replLive(prompt)
-    repll.writePlaceholder(placeholder)
+  replLive(map) {
+    repll = this.instance = new replLive(map)
     return repll
   },
   onInput(callback) {
     repll.on('key', key => callback(key))
   },
   onLine(callback) {
-    repll.on('line', l => {
-      const ph = callback(l)
-      if (typeof ph === 'string') repll.writePlaceholder(ph)
-    })
+    repll.on('line', l => callback(l))
   },
   onFakeLine(callback) {
     repll.on('fakeLine', fixedLine => {

@@ -1,7 +1,10 @@
-const { replLive, onInput } = require('../index')
+const { replLive, onInput, onLine } = require('../index')
 
 // Create a repll instance
-const repll = replLive(['write › ', 'write more › ', 'hide cursor<hide>'])
+let repll = replLive({
+  'write › ': 'ha',
+  'write more › ': 'placeholder',
+})
 
 // Listen input key-by-key
 onInput(key => {

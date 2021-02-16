@@ -2,8 +2,9 @@ const { replLive, onStop } = require('../index')
 const fetch = require('node-fetch')
 const c = require('chalk')
 
-const prompt = c`{blue › }`
-const repll = replLive([prompt], `Type a command you wanna search on tldr`)
+const repll = replLive({
+  [c`{blue › }`]: `Type a command you wanna search on tldr`,
+})
 
 // Pause 1 second -> request
 onStop(async () => {
