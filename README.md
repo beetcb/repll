@@ -41,7 +41,7 @@ The installation process is super fast because repll does not need any dependenc
 const { replLive, onInput } = require('repll')
 
 // Create a repll instance
-const repll = replLive([`› `])
+const repll = replLive({ 'prompt › ': 'placeholder' })
 
 // Listen input key-by-key
 onInput(input => {
@@ -62,10 +62,9 @@ The arrow function passed to `onInput` acts as an `evaluate` function in repl, i
 const { replLive, onTab } = require('repll')
 ```
 
-- **replLive**(prompt, placeholder)
+- **replLive**(map)
 
-  - prompt `array`: set input prompt sequence, the first line's prompt will be `prompt[0]`, second's `prompt[1]` ... You are even able to hide the cursor by passing a `string` ends with `<hide>`
-  - placeholder `string`: set input placeholder
+  - `map`: a object which contains `prompt-placeholder` key-value pairs
   - _Return_: a `replLive` class's instance
 
   You must call this function first to init and generate a `repll` entity, which contains some very useful properties and methods:
@@ -73,7 +72,7 @@ const { replLive, onTab } = require('repll')
   - `repll.input`: a `string`, which keeps tracking user's ccumulated input in current line
   - `repll.hl(len, string)`: a `Function`, it moves the cursor to the `len` left, cover user's input with a colorized `string`, it can be used to heightlighting user's input(NOTE: it won't change user's input, it covers a layer of colorized `string` **provided by you**)
   - `repll.write(string, object)`: a `Function`, same as readline's write method, it can type inputs for user. You can use it as an auto-completion
-
+  - `repll.waitClosing()`: a `Function` which returns a `Promise`(will be resolved when prompt is running out), we can use it to [create a new repll instance](https://github.com/beetcb/repll/blob/master/TEST/multiRepl.js) or [close repll for good UX](https://github.com/beetcb/repll/blob/master/TEST/close.js)
   - `repll.history` an `array`, when you have multiple lines of input, it records each line for user
   - `repll.inpuLine`: a `string`, it indicates which line user is currently on
 
@@ -81,7 +80,7 @@ const { replLive, onTab } = require('repll')
 
   - callback `Function`: take in user accumulated input, generate a sequence for completing
 
-  example:
+  i.e. :
 
   ```js
   onTab(v => {
@@ -103,7 +102,7 @@ This callback gets called each time user press the `tab`, view full example at h
   - callback `Function`: take in line number, if callback returns a `string`, it will be used as the new line's placeholder
 
   This function makes palceholder modifiable when user starts a new line.
-  exameple:
+  i.e. :
 
   ```js
   onLine(line => {

@@ -10,3 +10,5 @@
 - [heightlight](https://github.com/beetcb/repll/blob/master/TEST/heightlight.js)
 - [placeholder](https://github.com/beetcb/repll/blob/master/TEST/placeholder.js)
 - [fakeLine](https://github.com/beetcb/repll/blob/master/TEST/fakeLine.js)
+- [multiRepl](https://github.com/beetcb/repll/blob/master/TEST/multiRepl.js)
+- [close](https://github.com/beetcb/repll/blob/master/TEST/close.js)
