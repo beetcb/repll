@@ -35,6 +35,8 @@ npm i repll
 
 The installation process is super fast because repll does not need any dependencies
 
+**You must have NodeJS v13.5.0+(v12.16.0+) installed considering compatibility issues**
+
 #### Usage
 
 ```js
@@ -157,4 +159,4 @@ This callback gets called each time user press the `tab`, view full example at h
 
 - [`ink`](https://github.com/vadimdemedes/ink): awesome project, requires a dependency on [react](https://github.com/facebook/react), also supports read user input livly
 
-- [inquirer](https://github.com/SBoudrias/Inquirer.js): super powerful interactive command line user interfacess collection
+- [`inquirer`](https://github.com/SBoudrias/Inquirer.js): super powerful interactive command line user interfacess collection
