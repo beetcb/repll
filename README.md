@@ -1,7 +1,8 @@
 <p align="center">
   <a href="https://github.com/beetcb/repll">
-    <img src="assets/demo-commitlive.svg" alt="demo" width="600"><br><br>
+    <img src="https://git.beetcb.com/?path=/img/commitlive.svg" alt="demo" width="600"><br><br>
     <img alt="npm" src="https://img.shields.io/npm/v/repll">
+    <img alt="npm" src="https://img.shields.io/badge/contribute-welcome-blue">
   </a>
   <h3 align="center">repll: customizable & livly repl</h3>
   <p align="center">
@@ -25,6 +26,7 @@ We also support:
 - `fake line`: sometimes, you want to process input just in one line(by hitting enter, you don't wanna create a new prompt). But readline won't let you do that line feed, repll implement that by using `onFakeLine`, press `<shift-DownArrow>` to try it!
 - `livly prompt`: by passing a prompt string sequence to repll, every time you press enter, a brand new prompt prompts up!
 - `livly placeholder`: can be used to give user tips on what to do, it has `livly` feature too!
+- `arrow key navigation`: you can using arrow keys to edit the text you input, we currently don't support `fake line` + `arrow key navigation`, this can lead to strange behavior, but the fact that it is still working 💊 (PR is welcome)
 
 ### Get started!
 
