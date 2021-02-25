@@ -1,6 +1,7 @@
 <p align="center">
   <a href="https://github.com/beetcb/repll">
-    <img src="assets/demo-commitlive.svg" alt="demo" width="600">
+    <img src="assets/demo-commitlive.svg" alt="demo" width="600"><br><br>
+    <img alt="npm" src="https://img.shields.io/npm/v/repll">
   </a>
   <h3 align="center">repll: customizable & livly repl</h3>
   <p align="center">
