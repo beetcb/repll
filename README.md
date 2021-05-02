@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/beetcb/repll">
-    <img src="https://git.beetcb.com/?path=/img/commitlive.svg" alt="demo" width="600"><br><br>
+    <img src="assets/demo-commitlive.svg" alt="demo" width="600"><br><br>
     <img alt="npm" src="https://img.shields.io/npm/v/repll">
     <img alt="npm" src="https://img.shields.io/badge/contribute-welcome-blue">
   </a>
